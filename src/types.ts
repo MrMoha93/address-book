@@ -5,3 +5,7 @@ export interface User {
   email: string;
   avatar: string;
 }
+
+export interface UserProps {
+  user: User;
+}
