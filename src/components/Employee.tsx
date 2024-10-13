@@ -5,5 +5,14 @@ export default function Employee() {
   const { id } = useParams();
   const employee = useUsers().find((u) => u.id === id);
 
-  return <h1> {employee?.name}</h1>;
+  if (!employee) return;
+
+  return (
+    <div className="m-4 p-4 rounded shadow-xl">
+      <img src={employee.avatar} className="rounded-full" />
+      <div className="text-xl font-bold mt-2">{employee.name}</div>
+      <p>{employee.phone}</p>
+      <p>{employee.email}</p>
+    </div>
+  );
 }
