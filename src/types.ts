@@ -11,3 +11,13 @@ export interface UserProps {
 }
 
 export type SortOrder = "asc" | "desc";
+
+export interface SearchBoxProps {
+  value: string;
+  onChange: (value: string) => void;
+}
+
+export interface SortBoxProps {
+  value: SortOrder;
+  onChange: (value: SortOrder) => void;
+}
