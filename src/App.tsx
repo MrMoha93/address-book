@@ -24,6 +24,8 @@ export default function () {
       <h1 className="text-3xl ">Användare</h1>
       <SearchBox value={searchQuery} onChange={setSearchQuery} />
       <SortBox value={sortOrder} onChange={setSortOrder} />
+      <SearchBox value={searchQuery} onChange={setSearchQuery} />
+      <SortBox value={sortOrder} onChange={setSortOrder} />
       <ul className="grid grid-cols-1 laptop:grid-cols-4 gap-8 justify-items-center mt-4">
         {sortedUsers.map((user) => (
           <User key={user.id} user={user} />
