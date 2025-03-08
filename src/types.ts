@@ -4,6 +4,8 @@ export interface User {
   phone: string;
   email: string;
   avatar: string;
+  country: string;
+  city: string;
 }
 
 export interface UserProps {
