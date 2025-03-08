@@ -1,35 +1,33 @@
-interface Props {
-  totalCount: number;
-  pageSize: number;
-  selectedPage: number;
-  onPageSelect: (page: number) => void;
-}
+import { PaginationProps } from "../types";
 
 function Pagination({
   totalCount,
   pageSize,
   selectedPage,
   onPageSelect,
-}: Props) {
+}: PaginationProps) {
   const pageCount = Math.ceil(totalCount / pageSize);
   if (pageCount <= 1) return null;
+
+  const pages: number[] = [];
+  for (let index = 1; index <= pageCount; index++) {
+    pages.push(index);
+  }
 
   return (
     <div className="flex justify-center m-3">
       <div className="join">
-        <button
-          onClick={() => onPageSelect(1)}
-          className={`join-item btn ${selectedPage === 1 ? "btn-active" : ""}`}
-        >
-          1
-        </button>
-
-        <button
-          onClick={() => onPageSelect(2)}
-          className={`join-item btn ${selectedPage === 2 ? "btn-active" : ""}`}
-        >
-          2
-        </button>
+        {pages.map((page) => (
+          <button
+            key={page}
+            onClick={() => onPageSelect(page)}
+            className={`join-item btn ${
+              selectedPage === page ? "btn-active" : ""
+            }`}
+          >
+            {page}
+          </button>
+        ))}
       </div>
     </div>
   );

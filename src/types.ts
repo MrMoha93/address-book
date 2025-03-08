@@ -23,3 +23,10 @@ export interface SortBoxProps {
   value: SortOrder;
   onChange: (value: SortOrder) => void;
 }
+
+export interface PaginationProps {
+  totalCount: number;
+  pageSize: number;
+  selectedPage: number;
+  onPageSelect: (page: number) => void;
+}
