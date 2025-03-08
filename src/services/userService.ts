@@ -3,6 +3,8 @@ import { User } from "../types";
 
 const API_URL = "https://randomuser.me/api/?results=10&seed=moha&nat=gb";
 
+export const PAGE_SIZE = 6;
+
 export async function getUsers(): Promise<User[]> {
   const res = await axios.get(API_URL);
 
