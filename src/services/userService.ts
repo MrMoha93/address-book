@@ -1,9 +1,7 @@
 import axios from "axios";
 import { User } from "../types";
 
-const API_URL = "https://randomuser.me/api/?results=10&seed=moha&nat=gb";
-
-export const PAGE_SIZE = 6;
+const API_URL = "https://randomuser.me/api/?results=50&seed=moha&nat=gb";
 
 export async function getUsers(): Promise<User[]> {
   const res = await axios.get(API_URL);

@@ -5,7 +5,7 @@ export default function User({ user }: UserProps) {
   return (
     <li
       className="w-full p-4 shadow rounded cursor-pointer hover:scale-105 transition-transform duration-300
-      bg-white dark:bg-gray-800 
+      bg-white dark:bg-slate-700
       text-gray-900 dark:text-gray-100"
     >
       <Link to={`/${user.id}`} className="flex items-center">

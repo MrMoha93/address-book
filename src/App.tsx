@@ -6,7 +6,7 @@ import { SortOrder } from "./types";
 import SearchBox from "./components/SearchBox";
 import SortBox from "./components/SortBox";
 import { paginate } from "./utils";
-import { PAGE_SIZE } from "./services/userService";
+import { PAGE_SIZE } from "./utils";
 import Pagination from "./components/Pagination";
 
 export default function App() {
@@ -30,20 +30,19 @@ export default function App() {
 
   return (
     <div className="m-8">
-      <h1 className="text-3xl ">Användare</h1>
       <SearchBox value={searchQuery} onChange={setSearchQuery} />
       <SortBox value={sortOrder} onChange={setSortOrder} />
+      <ul className="grid grid-cols-1 laptop:grid-cols-4 gap-8 justify-items-center mt-4">
+        {paginatedUsers.map((user) => (
+          <User key={user.id} user={user} />
+        ))}
+      </ul>
       <Pagination
         pageSize={PAGE_SIZE}
         totalCount={filteredUsers.length}
         selectedPage={currentPage}
         onPageSelect={setCurrentPage}
       />
-      <ul className="grid grid-cols-1 laptop:grid-cols-4 gap-8 justify-items-center mt-4">
-        {paginatedUsers.map((user) => (
-          <User key={user.id} user={user} />
-        ))}
-      </ul>
     </div>
   );
 }
