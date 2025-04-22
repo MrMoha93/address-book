@@ -1,15 +1,21 @@
-import { SortBoxProps, SortOrder } from "../types";
+import { SortBoxProps } from "../types";
 
 export default function SortBox({ value, onChange }: SortBoxProps) {
+  const toggleSort = () => {
+    onChange(value === "asc" ? "desc" : "asc");
+  };
+
   return (
-    <select
-      className="m-4 w-40 p-2 border-2 border-neutral-500 rounded bg-white text-black 
-             dark:bg-gray-800 dark:text-white"
-      value={value}
-      onChange={(e) => onChange(e.target.value as SortOrder)}
+    <button
+      onClick={toggleSort}
+      className="m-4 px-4 py-2 border border-gray-400 rounded-full bg-white text-black 
+               dark:bg-gray-800 dark:text-white flex items-center gap-2"
     >
-      <option value="asc">Stigande</option>
-      <option value="desc">Fallande</option>
-    </select>
+      {value === "asc" ? (
+        <i className="fa-solid fa-chevron-up text-gray-500" />
+      ) : (
+        <i className="fa-solid fa-chevron-down text-gray-500" />
+      )}
+    </button>
   );
 }
